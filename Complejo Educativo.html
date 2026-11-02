@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complejo Educativo Nacional Profesor Sergio Amaya Carrero</title>
+
+    <style>
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --azul: #17365d;
+            --azul-oscuro: #102943;
+            --dorado: #c9a227;
+            --gris-fondo: #f4f6f8;
+            --gris-texto: #5f6875;
+            --blanco: #ffffff;
+            --azul-cielo: #7cb4e6; /* NUEVO COLOR AZUL CIELO INTERMEDIO */
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--gris-fondo);
+            color: #222;
+        }
+
+        /* =====================================================
+           ENCABEZADO
+        ===================================================== */
+        header {
+            width: 100%;
+            min-height: 82px;
+            background: var(--blanco);
+            padding: 10px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--dorado);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        /* =====================================================
+           NOMBRE DE LA INSTITUCIÓN
+        ===================================================== */
+        .nombre {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .nombre h1 {
+            margin: 0;
+            color: var(--azul);
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .nombre p {
+            margin: 4px 0 0;
+            color: #777;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        /* =====================================================
+           MENÚ
+        ===================================================== */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        nav a {
+            position: relative;
+            display: block;
+            padding: 10px 13px;
+            color: #374151;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--azul);
+            background: #f1f4f8;
+        }
+
+        nav a.activo {
+            color: var(--azul);
+        }
+
+        nav a.activo::after {
+            content: "";
+            position: absolute;
+            left: 13px;
+            right: 13px;
+            bottom: 4px;
+            height: 2px;
+            background: var(--dorado);
+            border-radius: 2px;
+        }
+
+        /* =====================================================
+           BANNER PRINCIPAL
+        ===================================================== */
+        .banner {
+            width: 100%;
+            min-height: 460px;
+            background-image: linear-gradient(rgba(23, 54, 93, 0.35), rgba(23, 54, 93, 0.35)), url("banner.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .banner-text {
+            color: white;
+            background: rgba(16, 41, 67, 0.72);
+            padding: 30px 40px;
+            border-radius: 10px;
+            max-width: 750px;
+            margin: 20px;
+            border-left: 4px solid var(--dorado);
+        }
+
+        .banner-text h2 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .banner-text p {
+            font-size: 19px;
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+           SECCIONES
+        ===================================================== */
+        section {
+            padding: 65px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo h2 {
+            color: var(--azul);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: var(--gris-texto);
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+           TARJETAS
+        ===================================================== */
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+            border-top: 3px solid var(--dorado);
+            transition: 0.25s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+        }
+
+        .icono {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: var(--azul);
+            margin-bottom: 10px;
+        }
+
+        .tarjeta p {
+            color: var(--gris-texto);
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           BACHILLERATO (Fondo Azul Cielo Intermedio)
+        ===================================================== */
+        .anos {
+            background: var(--azul-cielo);
+            color: var(--azul-oscuro); 
+        }
+
+        .anos .titulo h2 {
+            color: var(--azul-oscuro);
+        }
+
+        .anos .titulo p {
+            color: #333; /* Gris oscuro para buen contraste */
+            font-weight: 500;
+        }
+
+        .lista-anos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .ano {
+            background: white;
+            color: var(--azul);
+            padding: 18px 28px;
+            border-radius: 7px;
+            font-weight: bold;
+            min-width: 130px;
+            text-align: center;
+            border-bottom: 3px solid var(--dorado);
+            transition: 0.25s;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para que resalte en el azul */
+        }
+
+        .ano:hover {
+            background: var(--dorado);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* =====================================================
+           NOTICIAS
+        ===================================================== */
+        .noticias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .noticia {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+            border-left: 4px solid var(--azul);
+        }
+
+        .noticia h3 {
+            color: var(--azul);
+            margin-bottom: 10px;
+        }
+
+        .noticia p {
+            color: var(--gris-texto);
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           BOTONES
+        ===================================================== */
+        .boton {
+            display: inline-block;
+            background: var(--azul);
+            color: white;
+            padding: 12px 23px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        .boton:hover {
+            background: var(--azul-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* =====================================================
+           CONTACTO (Fondo Azul Cielo Intermedio)
+        ===================================================== */
+        .contacto {
+            background: var(--azul-cielo); 
+            color: var(--azul-oscuro); 
+            text-align: center;
+            border-top: 4px solid var(--dorado);
+        }
+
+        .contacto h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: var(--azul-oscuro);
+        }
+
+        .contacto p {
+            color: #333; 
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+
+        .contacto .boton {
+            background: var(--azul-oscuro); 
+            color: white;
+        }
+
+        .contacto .boton:hover {
+            background: var(--azul);
+            color: white;
+        }
+
+        /* =====================================================
+           PIE DE PÁGINA
+        ===================================================== */
+        footer {
+            background: var(--azul-oscuro);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #aebaca;
+            margin-top: 7px;
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           MODAL PARA LAS IMÁGENES
+        ===================================================== */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-contenido {
+            position: relative;
+            margin: 2% auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 96%;
+        }
+
+        .modal-contenido img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            animation: zoom 0.3s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 2001;
+        }
+
+        .cerrar:hover {
+            color: var(--dorado);
+            transform: scale(1.1);
+        }
+
+        /* =====================================================
+           VERSIÓN PARA CELULAR
+        ===================================================== */
+        @media (max-width: 850px) {
+            header {
+                padding: 12px 5%;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .logo {
+                width: 100%;
+                justify-content: center;
+            }
+            .logo img {
+                width: 45px;
+                height: 45px;
+            }
+            .nombre h1 {
+                font-size: 15px;
+            }
+            .nombre p {
+                font-size: 11px;
+            }
+            nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            nav a {
+                font-size: 13px;
+                padding: 8px 9px;
+            }
+            .banner {
+                min-height: 400px;
+            }
+            .banner-text {
+                padding: 25px;
+            }
+            .banner-text h2 {
+                font-size: 30px;
+            }
+            .banner-text p {
+                font-size: 16px;
+            }
+            .cerrar {
+                top: 10px;
+                right: 20px;
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nombre h1 {
+                font-size: 14px;
+            }
+            .banner-text h2 {
+                font-size: 26px;
+            }
+            section {
+                padding: 50px 6%;
+            }
+            .titulo h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         ENCABEZADO
+    ===================================================== -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo institucional">
+            <div class="nombre">
+                <h1>Complejo Educativo Nacional</h1>
+                <p>Profesor Sergio Amaya Carrero</p>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#inicio" class="activo">Inicio</a>
+            <a href="#institucion">Institución</a>
+            <a href="#bachillerato">Bachillerato</a>
+            <a href="#noticias">Noticias</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- =====================================================
+         BANNER
+    ===================================================== -->
+    <section class="banner" id="inicio">
+        <div class="banner-text">
+            <h2>Bienvenidos</h2>
+            <p>Complejo Educativo Nacional Profesor Sergio Amaya Carrero</p>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         INSTITUCIÓN
+    ===================================================== -->
+    <section id="institucion">
+        <div class="titulo">
+            <h2>Nuestra institución</h2>
+            <p>Un espacio dedicado a la formación académica de nuestros estudiantes.</p>
+        </div>
+
+        <div class="tarjetas">
+            <div class="tarjeta">
+                <div class="icono">🎓</div>
+                <h3>Educación</h3>
+                <p>Brindamos formación académica para estudiantes de educación media.</p>
+            </div>
+
+            <div class="tarjeta">
+                <div class="icono">📚</div>
+                <h3>Formación</h3>
+                <p>Promovemos el aprendizaje, la responsabilidad y el desarrollo integral de nuestros estudiantes.</p>
+            </div>
+
+            <div class="tarjeta">
+                <div class="icono">🤝</div>
+                <h3>Comunidad</h3>
+                <p>Trabajamos juntos para construir una comunidad educativa comprometida.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         BACHILLERATO
+    ===================================================== -->
+    <section class="anos" id="bachillerato">
+        <div class="titulo">
+            <h2>Educación Media</h2>
+            <p>Haz clic en 1.º o 2.º año para ver el horario de clases.</p>
+        </div>
+
+        <div class="lista-anos">
+            <div class="ano" onclick="abrirModal('horario1.png')">1.º Año</div>
+            <div class="ano" onclick="abrirModal('horario2.png')">2.º Año</div>
+            
+            <div class="ano">3.º Año</div>
+            <div class="ano">4.º Año</div>
+            <div class="ano">5.º Año</div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         NOTICIAS
+    ===================================================== -->
+    <section id="noticias">
+        <div class="titulo">
+            <h2>Noticias y actividades</h2>
+            <p>Información reciente de nuestra comunidad educativa.</p>
+        </div>
+
+        <div class="noticias">
+            <div class="noticia">
+                <h3>Actividades académicas</h3>
+                <p>Conoce las próximas actividades y eventos de nuestra institución.</p>
+            </div>
+
+            <div class="noticia">
+                <h3>Actividades deportivas</h3>
+                <p>Espacios para promover el deporte, la convivencia y el trabajo en equipo.</p>
+            </div>
+
+            <div class="noticia">
+                <h3>Comunidad estudiantil</h3>
+                <p>Conoce algunas de las actividades realizadas por nuestros estudiantes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACTO
+    ===================================================== -->
+    <section class="contacto" id="contacto">
+        <h2>Complejo Educativo Nacional</h2>
+        <p>Profesor Sergio Amaya Carrero</p>
+        <a href="#" class="boton">Más información</a>
+    </section>
+
+    <!-- =====================================================
+         PIE DE PÁGINA
+    ===================================================== -->
+    <footer>
+        <h3>Complejo Educativo Nacional Profesor Sergio Amaya Carrero</h3>
+        <p>Educación y formación para el futuro.</p>
+        <p>© 2026 Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- =====================================================
+         MODAL
+    ===================================================== -->
+    <div id="miModal" class="modal">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <div class="modal-contenido">
+            <img id="imgModal" src="" alt="Horario de clases">
+        </div>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+    <script>
+        function abrirModal(rutaImagen) {
+            document.getElementById("miModal").style.display = "block";
+            document.getElementById("imgModal").src = rutaImagen;
+        }
+
+        function cerrarModal() {
+            document.getElementById("miModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("miModal");
+            if (event.target == modal) {
+                cerrarModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
