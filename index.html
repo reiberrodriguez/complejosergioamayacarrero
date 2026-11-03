@@ -299,6 +299,14 @@
         .noticia p {
             color: var(--gris-texto);
             line-height: 1.6;
+            text-align: justify;
+        }
+
+        .noticia ul {
+            color: var(--gris-texto);
+            line-height: 1.6;
+            margin-left: 20px;
+            margin-top: 10px;
         }
 
         /* =====================================================
@@ -512,6 +520,7 @@
         <nav>
             <a href="#inicio" class="activo">Inicio</a>
             <a href="#institucion">Institución</a>
+            <a href="#historia">Historia</a> <!-- Añadido enlace a Historia -->
             <a href="#bachillerato">Bachillerato</a>
             <a href="#noticias">Noticias</a>
             <a href="#contacto">Contacto</a>
@@ -559,21 +568,74 @@
     </section>
 
     <!-- =====================================================
+         HISTORIA, MISIÓN Y VISIÓN (NUEVA SECCIÓN)
+    ===================================================== -->
+    <section id="historia" style="background: white;">
+        <div class="titulo">
+            <h2>Reseña Histórica, Misión y Visión</h2>
+            <p>Conoce nuestros orígenes y el rumbo que guía a nuestra institución.</p>
+        </div>
+
+        <div class="noticias">
+            <!-- Reseña Histórica (Ocupa todo el ancho) -->
+            <div class="noticia" style="grid-column: 1 / -1;">
+                <h3>Reseña Histórica</h3>
+                <p>El 15 de febrero fue fundada la institución en la vieja casona, iniciándose como escuela la unitaria de primer grado a tercer grado, siendo maestros Efrain Contreras y su esposa Tomasita.</p>
+                <p>Con el tiempo pasa a ser escuela concentrada que atendía de primer grado a sexto grado contando con especialistas de educación para el trabajo, campo y cría, por lo cual paso a ser graduada con el nombre de escuela pre vocacional "Vega de la pipa", siendo director el profesor Rodolfo Zambrano y junto con el profesor Sergio Amaya Carrero se creó el logo de la institución.</p>
+                <p>Cabe destacar que en la institución durante décadas han cumplido funciones como directores titulares o encargados muchos docentes comprometidos con la gerencia, administración y guía de la misma, entre los cuales se citan:</p>
+                <ul>
+                    <li><strong>1989-2001</strong> Profesor Gilberto Mendoza, director titular.</li>
+                    <li><strong>2001-2005</strong> Profesor EfrainRamirez, tiempo durante el cual la institución cambia de nombre a: escuela bolivariana con noveno horario de 9:30am a 3:30pm. En el año escolar 2003-2004 inicia la III etapa con la apertura de dos novenos (a-b); atendidos por dos maestros integradores, un docente especialista de proyecto productivo y un docente de inglés.</li>
+                    <li><strong>2005-2007</strong> profesora Gisela Velandia.</li>
+                    <li><strong>2007-2009</strong> licenciada María Sildena Hernandez, quien junto al profesor Alvaro Rodriguez crearon el himno institucional. Se apertura el cuarto y quinto año egresando la I promoción de bachilleres (2008-2009).</li>
+                    <li><strong>2009-2013</strong> Profesora Maria Eudoxia Becerra de Velandia: quien promueve la reorganización de los espacios educativos, así como la rehabilitación y acondicionamiento de la casilla policial para atender el maternal. Egresan la II promoción de bachilleres (2009-2010). Se crea el equipo de softbol institucional de profesores. Egresan la III promoción de bachilleres (2010-2011). Se funda la bandera ecológica por el profesor Ender Alvarado con la colaboración del profesor Nelson Godoy. Egresan la IV promoción de bachilleres (2011-2012). Se incorporan al liceo los docentes especialistas de biología y química e informática. Egresan la V promoción de bachilleres (2012-2013).</li>
+                    <li><strong>2013-2014</strong> Profesora Silvey Carvajal, egresa la VI promoción de bachilleres.</li>
+                    <li><strong>2014-2015</strong> Licenciada Marisol Chacon. Egresan la VII promoción de bachilleres.</li>
+                    <li><strong>2015-2020</strong> Licenciada Moncada Leida. Se incorporan las matrículas del NER 292 de la sabana y caño de agua como escuelas anexas. Egresan la promoción VIII; XIX; X; XI y XII.</li>
+                    <li><strong>2020-2023</strong> Profesora MariaEudocia Becerra de Velandia. Egresan las promociones XIII y XIV.</li>
+                </ul>
+            </div>
+
+            <!-- Misión -->
+            <div class="noticia">
+                <h3>Misión</h3>
+                <p>La U.E.N pre vocacional "Vega DE La Pipa" es una institución educativa publica dedicada a la formación integral de niños, niñas y adolescentes, sujetos de derecho y protagonistas activos de su propio aprendizajes. Es una institución abierta a la participación y trabajo comunitario, que busca la integración y el crecimiento en todos los ámbitos de la sociedad. Así mismo se educa mediante un proceso de unión entre la triada (familia- escuela- comunidad), en un ambiente de intercambio plenamente democrático y de compromiso, identificado y desarrollando las potencialidades de los estudiantes, respondiendo a sus necesidades y respetando sus características individuales para así brindarles una educación integral de calidad un enfoque humanista.</p>
+            </div>
+
+            <!-- Visión -->
+            <div class="noticia">
+                <h3>Visión</h3>
+                <p>La U.E.N pre vocacional "Vega de la Pipa" pretende ser una institución que forme e integre a la sociedad ciudadanos productivos, críticos, reflexivos, personas competentes e idóneas, sensibles ante los problemas de su comunidad y entorno social, con base sólida en valores. Formando individuos aptos para:</p>
+                <ul>
+                    <li>La integración productiva y activa de toda la comunidad en general.</li>
+                    <li>Espacios de análisis y reflexión entre sus integrantes.</li>
+                    <li>Que reconozcan la diversidad y la interculturalidad.</li>
+                    <li>Una cultura preventiva entre sus integrantes.</li>
+                    <li>La producción, mantenimiento y protección del ambiente.</li>
+                    <li>La conservación de una conciencia crítica.</li>
+                    <li>La vivencia de los derechos humanos y la construcción de la paz.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
          BACHILLERATO
     ===================================================== -->
     <section class="anos" id="bachillerato">
         <div class="titulo">
             <h2>Educación Media</h2>
-            <p>Haz clic en 1.º o 2.º año para ver el horario de clases.</p>
+            <p>Haz clic en el año correspondiente para ver el horario de clases.</p>
         </div>
 
         <div class="lista-anos">
             <div class="ano" onclick="abrirModal('horario1.png')">1.º Año</div>
             <div class="ano" onclick="abrirModal('horario2.png')">2.º Año</div>
             
-            <div class="ano">3.º Año</div>
-            <div class="ano">4.º Año</div>
-            <div class="ano">5.º Año</div>
+            <!-- AÑADIDOS LOS HORARIOS DE 3RO, 4TO Y 5TO EN FORMATO PNG -->
+            <div class="ano" onclick="abrirModal('horario3.png')">3.º Año</div>
+            <div class="ano" onclick="abrirModal('horario4.png')">4.º Año</div>
+            <div class="ano" onclick="abrirModal('horario5.png')">5.º Año</div>
         </div>
     </section>
 
