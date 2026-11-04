@@ -389,7 +389,7 @@
             padding: 40px;
             border-radius: 12px;
             width: 90%;
-            max-width: 900px;
+            max-width: 1100px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             animation: zoom 0.3s;
             color: #333;
@@ -417,7 +417,7 @@
             transform: scale(1.1);
         }
 
-        /* --- ESTILOS MEJORADOS PARA EL TEXTO DENTRO DEL MODAL --- */
+        /* --- ESTILOS PARA EL TEXTO DENTRO DEL MODAL --- */
         .modal-texto h2 {
             color: var(--azul);
             text-align: center;
@@ -455,6 +455,38 @@
         }
 
         /* =====================================================
+           DISEÑO HORIZONTAL PARA MISIÓN Y VISIÓN
+        ===================================================== */
+        .contenedor-doble {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .columna-texto {
+            flex: 1;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 3px solid var(--azul);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .columna-texto h3 {
+            color: var(--azul);
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .columna-texto p, .columna-texto li {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* =====================================================
            VERSIÓN PARA CELULAR
         ===================================================== */
         @media (max-width: 850px) {
@@ -467,6 +499,11 @@
             .cerrar { top: 10px; right: 20px; font-size: 40px; color: #333; }
             .modal-texto h2 { font-size: 22px; }
             .modal-texto p, .modal-texto li { font-size: 15px; }
+            
+            /* En celular, el diseño doble se convierte en columna */
+            .contenedor-doble {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -545,8 +582,7 @@
         <div class="lista-anos">
             <!-- Botones que abren ventanas flotantes de texto -->
             <div class="ano" onclick="abrirModalTexto('historia')">Reseña Histórica</div>
-            <div class="ano" onclick="abrirModalTexto('mision')">Misión</div>
-            <div class="ano" onclick="abrirModalTexto('vision')">Visión</div>
+            <div class="ano" onclick="abrirModalTexto('mision_vision')">Misión y Visión</div>
         </div>
     </section>
 
@@ -645,25 +681,32 @@
         </ul>
     </div>
 
-    <!-- MISIÓN -->
-    <div id="content-mision" style="display:none;" class="modal-texto">
-        <h2>Misión</h2>
-        <p>La U.E.N pre vocacional "Vega DE La Pipa" es una institución educativa publica dedicada a la formación integral de niños, niñas y adolescentes, sujetos de derecho y protagonistas activos de su propio aprendizajes. Es una institución abierta a la participación y trabajo comunitario, que busca la integración y el crecimiento en todos los ámbitos de la sociedad. Así mismo se educa mediante un proceso de unión entre la triada (familia- escuela- comunidad), en un ambiente de intercambio plenamente democrático y de compromiso, identificado y desarrollando las potencialidades de los estudiantes, respondiendo a sus necesidades y respetando sus características individuales para así brindarles una educación integral de calidad un enfoque humanista.</p>
-    </div>
+    <!-- MISIÓN Y VISIÓN (JUNTAS EN DISEÑO HORIZONTAL) -->
+    <div id="content-mision_vision" style="display:none;" class="modal-texto">
+        <h2>Misión y Visión</h2>
+        
+        <div class="contenedor-doble">
+            <!-- Columna Izquierda: Misión -->
+            <div class="columna-texto">
+                <h3>Misión</h3>
+                <p>La U.E.N pre vocacional "Vega DE La Pipa" es una institución educativa publica dedicada a la formación integral de niños, niñas y adolescentes, sujetos de derecho y protagonistas activos de su propio aprendizajes. Es una institución abierta a la participación y trabajo comunitario, que busca la integración y el crecimiento en todos los ámbitos de la sociedad. Así mismo se educa mediante un proceso de unión entre la triada (familia- escuela- comunidad), en un ambiente de intercambio plenamente democrático y de compromiso, identificado y desarrollando las potencialidades de los estudiantes, respondiendo a sus necesidades y respetando sus características individuales para así brindarles una educación integral de calidad un enfoque humanista.</p>
+            </div>
 
-    <!-- VISIÓN -->
-    <div id="content-vision" style="display:none;" class="modal-texto">
-        <h2>Visión</h2>
-        <p>La U.E.N pre vocacional "Vega de la Pipa" pretende ser una institución que forme e integre a la sociedad ciudadanos productivos, críticos, reflexivos, personas competentes e idóneas, sensibles ante los problemas de su comunidad y entorno social, con base sólida en valores. Formando individuos aptos para:</p>
-        <ul>
-            <li>La integración productiva y activa de toda la comunidad en general.</li>
-            <li>Espacios de análisis y reflexión entre sus integrantes.</li>
-            <li>Que reconozcan la diversidad y la interculturalidad.</li>
-            <li>Una cultura preventiva entre sus integrantes.</li>
-            <li>La producción, mantenimiento y protección del ambiente.</li>
-            <li>La conservación de una conciencia crítica.</li>
-            <li>La vivencia de los derechos humanos y la construcción de la paz.</li>
-        </ul>
+            <!-- Columna Derecha: Visión -->
+            <div class="columna-texto">
+                <h3>Visión</h3>
+                <p>La U.E.N pre vocacional "Vega de la Pipa" pretende ser una institución que forme e integre a la sociedad ciudadanos productivos, críticos, reflexivos, personas competentes e idóneas, sensibles ante los problemas de su comunidad y entorno social, con base sólida en valores. Formando individuos aptos para:</p>
+                <ul>
+                    <li>La integración productiva y activa de toda la comunidad en general.</li>
+                    <li>Espacios de análisis y reflexión entre sus integrantes.</li>
+                    <li>Que reconozcan la diversidad y la interculturalidad.</li>
+                    <li>Una cultura preventiva entre sus integrantes.</li>
+                    <li>La producción, mantenimiento y protección del ambiente.</li>
+                    <li>La conservación de una conciencia crítica.</li>
+                    <li>La vivencia de los derechos humanos y la construcción de la paz.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <!-- =====================================================
