@@ -163,6 +163,7 @@
             border-radius: 8px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
             transition: 0.3s;
+            cursor: pointer; /* Cursor tipo mano para indicar que es clickeable */
         }
         .galeria-grid img:hover {
             transform: scale(1.05);
@@ -262,14 +263,11 @@
         </div>
     </section>
 
-    <!-- =====================================================
-         SECCIÓN DE CONTACTO (MODIFICADA CON TU NÚMERO)
-    ===================================================== -->
+    <!-- CONTACTO -->
     <section class="contacto" id="contacto">
         <h2>Contáctanos</h2>
         <p>Complejo Educativo Nacional "Profesor Sergio Amaya Carrero"</p>
         
-        <!-- Número de teléfono destacado -->
         <p style="font-size: 20px; font-weight: bold; color: var(--azul); margin-bottom: 10px;">
             📞 Teléfono de Atención:
         </p>
@@ -277,7 +275,6 @@
             +58 416-573-8425
         </p>
         
-        <!-- Botón para llamar directo desde el celular -->
         <a href="tel:+584165738425" class="boton">Llamar ahora</a>
     </section>
 
@@ -336,21 +333,21 @@
         </div>
     </div>
 
-    <!-- CONTENIDO DE LA GALERÍA (SE ABRE EN EL MODAL) -->
+    <!-- CONTENIDO DE LA GALERÍA (CON FUNCIÓN CLICKEABLE Y EXTENSIÓN .JPEG) -->
     <div id="content-galeria" style="display:none;" class="modal-texto">
         <h2>Galería de Fotos</h2>
-        <p style="text-align: center; margin-bottom: 20px;">Conoce nuestras instalaciones y actividades.</p>
+        <p style="text-align: center; margin-bottom: 20px;">Haz clic en cualquier foto para verla en tamaño grande.</p>
         <div class="galeria-grid">
-            <img src="foto1.jpg" alt="Foto 1">
-            <img src="foto2.jpg" alt="Foto 2">
-            <img src="foto3.jpg" alt="Foto 3">
-            <img src="foto4.jpg" alt="Foto 4">
-            <img src="foto5.jpg" alt="Foto 5">
-            <img src="foto6.jpg" alt="Foto 6">
-            <img src="foto7.jpg" alt="Foto 7">
-            <img src="foto8.jpg" alt="Foto 8">
-            <img src="foto9.jpg" alt="Foto 9">
-            <img src="foto10.jpg" alt="Foto 10">
+            <img src="foto1.jpeg" alt="Foto 1" onclick="abrirModalImagen('foto1.jpeg')">
+            <img src="foto2.jpeg" alt="Foto 2" onclick="abrirModalImagen('foto2.jpeg')">
+            <img src="foto3.jpeg" alt="Foto 3" onclick="abrirModalImagen('foto3.jpeg')">
+            <img src="foto4.jpeg" alt="Foto 4" onclick="abrirModalImagen('foto4.jpeg')">
+            <img src="foto5.jpeg" alt="Foto 5" onclick="abrirModalImagen('foto5.jpeg')">
+            <img src="foto6.jpeg" alt="Foto 6" onclick="abrirModalImagen('foto6.jpeg')">
+            <img src="foto7.jpeg" alt="Foto 7" onclick="abrirModalImagen('foto7.jpeg')">
+            <img src="foto8.jpeg" alt="Foto 8" onclick="abrirModalImagen('foto8.jpeg')">
+            <img src="foto9.jpeg" alt="Foto 9" onclick="abrirModalImagen('foto9.jpeg')">
+            <img src="foto10.jpeg" alt="Foto 10" onclick="abrirModalImagen('foto10.jpeg')">
         </div>
     </div>
 
@@ -368,7 +365,7 @@
         function abrirModalImagen(rutaImagen) {
             var modal = document.getElementById("miModal");
             var contenidoModal = document.getElementById("contenidoModal");
-            contenidoModal.innerHTML = '<img src="' + rutaImagen + '" style="width:100%; height:auto; border-radius:8px; display: block; margin: 0 auto;" alt="Horario">';
+            contenidoModal.innerHTML = '<img src="' + rutaImagen + '" style="width:100%; height:auto; border-radius:8px; display: block; margin: 0 auto;" alt="Imagen ampliada">';
             modal.style.display = "block";
         }
 
