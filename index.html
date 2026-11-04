@@ -6,62 +6,178 @@
     <title>Complejo Educativo Nacional Profesor Sergio Amaya Carrero</title>
 
     <style>
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        :root { --azul: #17365d; --azul-oscuro: #102943; --dorado: #c9a227; --gris-fondo: #f4f6f8; --gris-texto: #5f6875; --blanco: #ffffff; --azul-cielo: #7cb4e6; }
-        body { font-family: Arial, Helvetica, sans-serif; background: var(--gris-fondo); color: #222; }
-        
-        /* ENCABEZADO */
-        header { width: 100%; min-height: 82px; background: var(--blanco); padding: 10px 6%; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--dorado); box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10); position: sticky; top: 0; z-index: 1000; }
+
+        :root {
+            --azul: #17365d; --azul-oscuro: #102943; --dorado: #c9a227;
+            --gris-fondo: #f4f6f8; --gris-texto: #5f6875;
+            --blanco: #ffffff; --azul-cielo: #7cb4e6;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--gris-fondo); color: #222; }
+
+        /* =====================================================
+           ENCABEZADO
+        ===================================================== */
+        header {
+            width: 100%; min-height: 82px; background: var(--blanco); padding: 10px 6%;
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 3px solid var(--dorado); box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+            position: sticky; top: 0; z-index: 1000;
+        }
         .logo { display: flex; align-items: center; gap: 12px; min-width: 0; }
         .logo img { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
         .nombre { display: flex; flex-direction: column; justify-content: center; }
         .nombre h1 { margin: 0; color: var(--azul); font-size: 17px; font-weight: 700; line-height: 1.2; }
         .nombre p { margin: 4px 0 0; color: #777; font-size: 12px; font-weight: 500; letter-spacing: 0.2px; }
-        
-        /* MENÚ */
+
+        /* =====================================================
+           MENÚ
+        ===================================================== */
         nav { display: flex; align-items: center; gap: 4px; }
-        nav a { position: relative; display: block; padding: 10px 13px; color: #374151; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 6px; transition: background 0.25s ease, color 0.25s ease; }
+        nav a {
+            position: relative; display: block; padding: 10px 13px; color: #374151;
+            text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 6px;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
         nav a:hover { color: var(--azul); background: #f1f4f8; }
         nav a.activo { color: var(--azul); }
-        nav a.activo::after { content: ""; position: absolute; left: 13px; right: 13px; bottom: 4px; height: 2px; background: var(--dorado); border-radius: 2px; }
-        
-        /* BANNER */
-        .banner { width: 100%; min-height: 460px; background-image: linear-gradient(rgba(23, 54, 93, 0.35), rgba(23, 54, 93, 0.35)), url("banner.png"); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
-        .banner-text { color: white; background: rgba(16, 41, 67, 0.72); padding: 30px 40px; border-radius: 10px; max-width: 750px; margin: 20px; border-left: 4px solid var(--dorado); }
+        nav a.activo::after {
+            content: ""; position: absolute; left: 13px; right: 13px; bottom: 4px;
+            height: 2px; background: var(--dorado); border-radius: 2px;
+        }
+
+        /* =====================================================
+           BANNER
+        ===================================================== */
+        .banner {
+            width: 100%; min-height: 460px;
+            background-image: linear-gradient(rgba(23, 54, 93, 0.35), rgba(23, 54, 93, 0.35)), url("banner.png");
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        .banner-text {
+            color: white; background: rgba(16, 41, 67, 0.72); padding: 30px 40px;
+            border-radius: 10px; max-width: 750px; margin: 20px; border-left: 4px solid var(--dorado);
+        }
         .banner-text h2 { font-size: 42px; margin-bottom: 12px; }
         .banner-text p { font-size: 19px; line-height: 1.5; }
-        
-        /* SECCIONES */
+
+        /* =====================================================
+           SECCIONES Y TARJETAS
+        ===================================================== */
         section { padding: 65px 8%; }
         .titulo { text-align: center; margin-bottom: 40px; }
         .titulo h2 { color: var(--azul); font-size: 32px; margin-bottom: 10px; }
         .titulo p { color: var(--gris-texto); line-height: 1.5; }
-        
-        /* TARJETAS */
+
         .tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
-        .tarjeta { background: white; padding: 30px 25px; border-radius: 10px; text-align: center; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07); border-top: 3px solid var(--dorado); transition: 0.25s; }
+        .tarjeta {
+            background: white; padding: 30px 25px; border-radius: 10px; text-align: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07); border-top: 3px solid var(--dorado); transition: 0.25s;
+        }
         .tarjeta:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10); }
         .icono { font-size: 36px; margin-bottom: 15px; }
         .tarjeta h3 { color: var(--azul); margin-bottom: 10px; }
         .tarjeta p { color: var(--gris-texto); line-height: 1.6; }
-        
-        /* BACHILLERATO */
+
+        /* =====================================================
+           BACHILLERATO
+        ===================================================== */
         .anos { background: var(--azul-cielo); color: var(--azul-oscuro); }
         .anos .titulo h2 { color: var(--azul-oscuro); }
         .anos .titulo p { color: #333; font-weight: 500; }
         .lista-anos { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
-        .ano { background: white; color: var(--azul); padding: 18px 28px; border-radius: 7px; font-weight: bold; min-width: 130px; text-align: center; border-bottom: 3px solid var(--dorado); transition: 0.25s; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .ano {
+            background: white; color: var(--azul); padding: 18px 28px; border-radius: 7px;
+            font-weight: bold; min-width: 130px; text-align: center; border-bottom: 3px solid var(--dorado);
+            transition: 0.25s; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
         .ano:hover { background: var(--dorado); color: white; transform: translateY(-3px); }
-        
-        /* CARRUSEL */
-        .carousel-container { position: relative; max-width: 900px; margin: 0 auto; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 3px solid var(--dorado); }
-        .carousel-slide { display: flex; transition: transform 0.5s ease-in-out; width: 100%; }
-        .carousel-slide img { width: 100%; flex-shrink: 0; height: 450px; object-fit: cover; }
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(23, 54, 93, 0.8); color: white; border: none; padding: 15px 20px; cursor: pointer; font-size: 24px; border-radius: 5px; transition: 0.3s; z-index: 10; }
+
+        /* =====================================================
+           NUEVO CARRUSEL DINÁMICO (SCROLL-SNAP)
+        ===================================================== */
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory; /* Esto hace que se deslice suavemente */
+            scroll-behavior: smooth;
+            gap: 15px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            /* Ocultar la barra de desplazamiento en navegadores webkit */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; 
+        }
+        .carousel-track::-webkit-scrollbar { display: none; }
+
+        .carousel-slide {
+            flex: 0 0 100%; /* Cada imagen ocupa el 100% del ancho */
+            scroll-snap-align: center;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+        }
+
+        /* Texto sobre las imágenes */
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(16, 41, 67, 0.9), transparent);
+            color: white;
+            padding: 40px 20px 20px 20px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Botones del carrusel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(23, 54, 93, 0.7);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            transition: 0.3s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+        }
         .carousel-btn:hover { background: var(--dorado); color: var(--azul-oscuro); }
-        .prev { left: 10px; } .next { right: 10px; }
-        
-        /* CONTACTO Y PIE */
+        .prev { left: 15px; }
+        .next { right: 15px; }
+
+        /* =====================================================
+           CONTACTO Y PIE
+        ===================================================== */
         .contacto { background: var(--azul-cielo); color: var(--azul-oscuro); text-align: center; border-top: 4px solid var(--dorado); }
         .contacto h2 { font-size: 30px; margin-bottom: 10px; color: var(--azul-oscuro); }
         .contacto p { color: #333; font-weight: 500; margin-bottom: 22px; }
@@ -70,24 +186,46 @@
         footer { background: var(--azul-oscuro); color: white; text-align: center; padding: 35px 20px; }
         footer h3 { margin-bottom: 10px; }
         footer p { color: #aebaca; margin-top: 7px; font-size: 14px; }
-        
-        /* MODAL */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(3px); overflow-y: auto; }
-        .modal-contenido { position: relative; margin: 2% auto; background: #ffffff; padding: 40px; border-radius: 12px; width: 90%; max-width: 1100px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); animation: zoom 0.3s; color: #333; }
+
+        /* =====================================================
+           MODAL (VENTANA FLOTANTE)
+        ===================================================== */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(3px); overflow-y: auto;
+        }
+        .modal-contenido {
+            position: relative; margin: 2% auto; background: #ffffff; padding: 40px;
+            border-radius: 12px; width: 90%; max-width: 1100px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5); animation: zoom 0.3s; color: #333;
+        }
         @keyframes zoom { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
-        .cerrar { position: fixed; top: 20px; right: 35px; color: #fff; font-size: 45px; font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 2001; }
+        .cerrar {
+            position: fixed; top: 20px; right: 35px; color: #fff; font-size: 45px;
+            font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 2001;
+        }
         .cerrar:hover { color: var(--dorado); transform: scale(1.1); }
-        .modal-texto h2 { color: var(--azul); text-align: center; margin-bottom: 25px; font-size: 28px; border-bottom: 2px solid var(--dorado); padding-bottom: 15px; text-transform: uppercase; }
+
+        /* ESTILOS DENTRO DEL MODAL */
+        .modal-texto h2 {
+            color: var(--azul); text-align: center; margin-bottom: 25px; font-size: 28px;
+            border-bottom: 2px solid var(--dorado); padding-bottom: 15px; text-transform: uppercase;
+        }
         .modal-texto p { text-align: justify; line-height: 1.8; margin-bottom: 20px; font-size: 16px; color: #444; }
         .modal-texto ul { padding-left: 25px; margin-bottom: 20px; }
         .modal-texto li { text-align: justify; line-height: 1.8; margin-bottom: 12px; font-size: 16px; color: #444; }
         .modal-texto strong { color: var(--azul); }
         .contenedor-doble { display: flex; gap: 30px; margin-top: 10px; }
-        .columna-texto { flex: 1; background: #f9f9f9; padding: 25px; border-radius: 10px; border-top: 3px solid var(--azul); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .columna-texto {
+            flex: 1; background: #f9f9f9; padding: 25px; border-radius: 10px;
+            border-top: 3px solid var(--azul); box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
         .columna-texto h3 { color: var(--azul); text-align: center; margin-bottom: 15px; font-size: 20px; }
         .columna-texto p, .columna-texto li { font-size: 15px; line-height: 1.7; }
-        
-        /* CELULAR */
+
+        /* =====================================================
+           VERSIÓN PARA CELULAR
+        ===================================================== */
         @media (max-width: 850px) {
             header { padding: 12px 5%; flex-direction: column; gap: 12px; }
             .logo { width: 100%; justify-content: center; }
@@ -97,13 +235,17 @@
             .modal-contenido { width: 95%; padding: 20px; margin: 10% auto; }
             .cerrar { top: 10px; right: 20px; font-size: 40px; color: #333; }
             .contenedor-doble { flex-direction: column; }
-            .carousel-slide img { height: 250px; }
-            .carousel-btn { padding: 10px 15px; font-size: 18px; }
+            
+            /* Carrusel en celular */
+            .carousel-slide img { height: 300px; }
+            .carousel-btn { padding: 10px; width: 40px; height: 40px; font-size: 18px; }
+            .slide-caption { font-size: 14px; padding: 30px 10px 10px 10px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ENCABEZADO -->
     <header>
         <div class="logo">
             <img src="logo.png" alt="Logo institucional">
@@ -122,6 +264,7 @@
         </nav>
     </header>
 
+    <!-- BANNER -->
     <section class="banner" id="inicio">
         <div class="banner-text">
             <h2>Bienvenidos</h2>
@@ -129,18 +272,26 @@
         </div>
     </section>
 
+    <!-- INSTITUCIÓN -->
     <section id="institucion">
         <div class="titulo">
             <h2>Nuestra institución</h2>
             <p>Un espacio dedicado a la formación académica de nuestros estudiantes.</p>
         </div>
         <div class="tarjetas">
-            <div class="tarjeta"><div class="icono">🎓</div><h3>Educación</h3><p>Brindamos formación académica para estudiantes de educación media.</p></div>
-            <div class="tarjeta"><div class="icono">📚</div><h3>Formación</h3><p>Promovemos el aprendizaje, la responsabilidad y el desarrollo integral de nuestros estudiantes.</p></div>
-            <div class="tarjeta"><div class="icono">🤝</div><h3>Comunidad</h3><p>Trabajamos juntos para construir una comunidad educativa comprometida.</p></div>
+            <div class="tarjeta">
+                <div class="icono">🎓</div><h3>Educación</h3><p>Brindamos formación académica para estudiantes de educación media.</p>
+            </div>
+            <div class="tarjeta">
+                <div class="icono">📚</div><h3>Formación</h3><p>Promovemos el aprendizaje, la responsabilidad y el desarrollo integral de nuestros estudiantes.</p>
+            </div>
+            <div class="tarjeta">
+                <div class="icono">🤝</div><h3>Comunidad</h3><p>Trabajamos juntos para construir una comunidad educativa comprometida.</p>
+            </div>
         </div>
     </section>
 
+    <!-- IDENTIDAD -->
     <section id="identidad" style="background: white;">
         <div class="titulo">
             <h2>Nuestra Identidad</h2>
@@ -152,6 +303,7 @@
         </div>
     </section>
 
+    <!-- BACHILLERATO -->
     <section class="anos" id="bachillerato">
         <div class="titulo">
             <h2>Educación Media</h2>
@@ -166,47 +318,74 @@
         </div>
     </section>
 
-    <!-- AQUI ESTA EL CARRUSEL -->
-   <section id="galeria" style="background: #ff0000; padding: 50px;">
+    <!-- =====================================================
+         CARRUSEL DINÁMICO (CON IMÁGENES DE PRUEBA)
+    ===================================================== -->
+    <section id="galeria" style="background: var(--gris-fondo);">
         <div class="titulo">
             <h2>Nuestras Instalaciones</h2>
-            <p>Un recorrido visual por nuestro liceo.</p>
+            <p>Desliza o usa las flechas para ver más fotos de nuestro liceo.</p>
         </div>
-        <div class="carousel-container">
-            <div class="carousel-slide" id="carouselSlide">
-                <img src="foto1.jpg" alt="Foto 1">
-                <img src="foto2.jpg" alt="Foto 2">
-                <img src="foto3.jpg" alt="Foto 3">
-                <img src="foto4.jpg" alt="Foto 4">
-                <img src="foto5.jpg" alt="Foto 5">
-                <img src="foto6.jpg" alt="Foto 6">
-                <img src="foto7.jpg" alt="Foto 7">
-                <img src="foto8.jpg" alt="Foto 8">
-                <img src="foto9.jpg" alt="Foto 9">
-                <img src="foto10.jpg" alt="Foto 10">
+
+        <div class="carousel-wrapper">
+            <!-- Contenedor que se desliza -->
+            <div class="carousel-track" id="carouselTrack">
+                
+                <!-- FOTO 1 -->
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/id/10/1000/450" alt="Fachada">
+                    <div class="slide-caption">Entrada Principal del Liceo</div>
+                </div>
+                <!-- FOTO 2 -->
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/id/20/1000/450" alt="Aulas">
+                    <div class="slide-caption">Nuestras Aulas de Clase</div>
+                </div>
+                <!-- FOTO 3 -->
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/id/30/1000/450" alt="Biblioteca">
+                    <div class="slide-caption">Espacios de Estudio</div>
+                </div>
+                <!-- FOTO 4 -->
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/id/40/1000/450" alt="Deportes">
+                    <div class="slide-caption">Cancha Deportiva</div>
+                </div>
+                <!-- FOTO 5 -->
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/id/50/1000/450" alt="Actividades">
+                    <div class="slide-caption">Actividades Culturales</div>
+                </div>
+
             </div>
+            
+            <!-- Botones para mover el carrusel -->
             <button class="carousel-btn prev" onclick="moverCarrusel(-1)">&#10094;</button>
             <button class="carousel-btn next" onclick="moverCarrusel(1)">&#10095;</button>
         </div>
     </section>
 
+    <!-- CONTACTO -->
     <section class="contacto" id="contacto">
         <h2>Complejo Educativo Nacional</h2>
         <p>Profesor Sergio Amaya Carrero</p>
         <a href="#" class="boton">Más información</a>
     </section>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
         <h3>Complejo Educativo Nacional Profesor Sergio Amaya Carrero</h3>
         <p>Educación y formación para el futuro.</p>
         <p>© 2026 Todos los derechos reservados.</p>
     </footer>
 
+    <!-- MODAL -->
     <div id="miModal" class="modal">
         <span class="cerrar" onclick="cerrarModal()">&times;</span>
         <div class="modal-contenido" id="contenidoModal"></div>
     </div>
 
+    <!-- CONTENIDO OCULTO (Textos) -->
     <div id="content-historia" style="display:none;" class="modal-texto">
         <h2>Reseña Histórica</h2>
         <p>El 15 de febrero fue fundada la institución en la vieja casona, iniciándose como escuela la unitaria de primer grado a tercer grado, siendo maestros Efrain Contreras y su esposa Tomasita.</p>
@@ -248,7 +427,9 @@
         </div>
     </div>
 
+    <!-- JAVASCRIPT -->
     <script>
+        // --- LÓGICA DE LAS VENTANAS FLOTANTES (MODALES) ---
         function abrirModalTexto(idContenido) {
             var modal = document.getElementById("miModal");
             var contenidoModal = document.getElementById("contenidoModal");
@@ -256,33 +437,46 @@
             contenidoModal.innerHTML = contenidoOculto.innerHTML;
             modal.style.display = "block";
         }
+
         function abrirModalImagen(rutaImagen) {
             var modal = document.getElementById("miModal");
             var contenidoModal = document.getElementById("contenidoModal");
             contenidoModal.innerHTML = '<img src="' + rutaImagen + '" style="width:100%; height:auto; border-radius:8px; display: block; margin: 0 auto;" alt="Horario">';
             modal.style.display = "block";
         }
+
         function cerrarModal() {
             document.getElementById("miModal").style.display = "none";
         }
+
         window.onclick = function(event) {
             var modal = document.getElementById("miModal");
-            if (event.target == modal) { cerrarModal(); }
+            if (event.target == modal) {
+                cerrarModal();
+            }
         }
 
-        let indiceActual = 0;
-        const slides = document.querySelectorAll('#carouselSlide img');
-        const totalSlides = slides.length;
-
+        // --- LÓGICA DEL NUEVO CARRUSEL DINÁMICO ---
+        const track = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        
         function moverCarrusel(direccion) {
-            indiceActual += direccion;
-            if (indiceActual >= totalSlides) { indiceActual = 0; }
-            if (indiceActual < 0) { indiceActual = totalSlides - 1; }
-            const slideContainer = document.getElementById('carouselSlide');
-            slideContainer.style.transform = `translateX(-${indiceActual * 100}%)`;
+            // Obtiene el ancho de una imagen
+            const slideWidth = slides[0].offsetWidth + 15; // 15 es el gap
+            // Calcula a dónde debe moverse
+            track.scrollBy({ left: direccion * slideWidth, behavior: 'smooth' });
         }
 
-        setInterval(() => { moverCarrusel(1); }, 5000);
+        // Opcional: Auto-reproducción (mueve el carrusel cada 4 segundos)
+        setInterval(() => {
+            const slideWidth = slides[0].offsetWidth + 15;
+            // Si llega al final, vuelve al inicio
+            if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                moverCarrusel(1);
+            }
+        }, 4000);
     </script>
 </body>
 </html>
