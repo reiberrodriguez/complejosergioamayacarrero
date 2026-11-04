@@ -15,6 +15,7 @@
             --azul: #17365d; --azul-oscuro: #102943; --dorado: #c9a227;
             --gris-fondo: #f4f6f8; --gris-texto: #5f6875;
             --blanco: #ffffff; --azul-cielo: #7cb4e6;
+            --azul-claro-intermedio: #b3d4f0; /* Nuevo color para la galería */
         }
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--gris-fondo); color: #222; }
@@ -99,7 +100,7 @@
         .ano:hover { background: var(--dorado); color: white; transform: translateY(-3px); }
 
         /* =====================================================
-           NUEVO CARRUSEL DINÁMICO (SCROLL-SNAP)
+           CARRUSEL DINÁMICO
         ===================================================== */
         .carousel-wrapper {
             position: relative;
@@ -110,19 +111,18 @@
         .carousel-track {
             display: flex;
             overflow-x: auto;
-            scroll-snap-type: x mandatory; /* Esto hace que se deslice suavemente */
+            scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             gap: 15px;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            /* Ocultar la barra de desplazamiento en navegadores webkit */
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none; 
         }
         .carousel-track::-webkit-scrollbar { display: none; }
 
         .carousel-slide {
-            flex: 0 0 100%; /* Cada imagen ocupa el 100% del ancho */
+            flex: 0 0 100%;
             scroll-snap-align: center;
             position: relative;
         }
@@ -135,7 +135,6 @@
             display: block;
         }
 
-        /* Texto sobre las imágenes */
         .slide-caption {
             position: absolute;
             bottom: 0;
@@ -151,7 +150,6 @@
             text-align: center;
         }
 
-        /* Botones del carrusel */
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -206,7 +204,6 @@
         }
         .cerrar:hover { color: var(--dorado); transform: scale(1.1); }
 
-        /* ESTILOS DENTRO DEL MODAL */
         .modal-texto h2 {
             color: var(--azul); text-align: center; margin-bottom: 25px; font-size: 28px;
             border-bottom: 2px solid var(--dorado); padding-bottom: 15px; text-transform: uppercase;
@@ -236,7 +233,6 @@
             .cerrar { top: 10px; right: 20px; font-size: 40px; color: #333; }
             .contenedor-doble { flex-direction: column; }
             
-            /* Carrusel en celular */
             .carousel-slide img { height: 300px; }
             .carousel-btn { padding: 10px; width: 40px; height: 40px; font-size: 18px; }
             .slide-caption { font-size: 14px; padding: 30px 10px 10px 10px; }
@@ -245,7 +241,6 @@
 </head>
 <body>
 
-    <!-- ENCABEZADO -->
     <header>
         <div class="logo">
             <img src="logo.png" alt="Logo institucional">
@@ -264,7 +259,6 @@
         </nav>
     </header>
 
-    <!-- BANNER -->
     <section class="banner" id="inicio">
         <div class="banner-text">
             <h2>Bienvenidos</h2>
@@ -272,7 +266,6 @@
         </div>
     </section>
 
-    <!-- INSTITUCIÓN -->
     <section id="institucion">
         <div class="titulo">
             <h2>Nuestra institución</h2>
@@ -291,7 +284,6 @@
         </div>
     </section>
 
-    <!-- IDENTIDAD -->
     <section id="identidad" style="background: white;">
         <div class="titulo">
             <h2>Nuestra Identidad</h2>
@@ -303,7 +295,6 @@
         </div>
     </section>
 
-    <!-- BACHILLERATO -->
     <section class="anos" id="bachillerato">
         <div class="titulo">
             <h2>Educación Media</h2>
@@ -319,73 +310,92 @@
     </section>
 
     <!-- =====================================================
-         CARRUSEL DINÁMICO (CON IMÁGENES DE PRUEBA)
+         CARRUSEL DINÁMICO CON FOTO1 A FOTO10 Y FONDO AZUL
     ===================================================== -->
-    <section id="galeria" style="background: var(--gris-fondo);">
+    <section id="galeria" style="background: var(--azul-claro-intermedio);">
         <div class="titulo">
-            <h2>Nuestras Instalaciones</h2>
-            <p>Desliza o usa las flechas para ver más fotos de nuestro liceo.</p>
+            <h2 style="color: var(--azul-oscuro);">Nuestras Instalaciones</h2>
+            <p style="color: #333;">Desliza o usa las flechas para ver más fotos de nuestro liceo.</p>
         </div>
 
         <div class="carousel-wrapper">
-            <!-- Contenedor que se desliza -->
             <div class="carousel-track" id="carouselTrack">
                 
                 <!-- FOTO 1 -->
                 <div class="carousel-slide">
-                    <img src="https://picsum.photos/id/10/1000/450" alt="Fachada">
-                    <div class="slide-caption">Entrada Principal del Liceo</div>
+                    <img src="foto1.jpg" alt="Foto 1">
+                    <div class="slide-caption">Instalaciones del Liceo</div>
                 </div>
                 <!-- FOTO 2 -->
                 <div class="carousel-slide">
-                    <img src="https://picsum.photos/id/20/1000/450" alt="Aulas">
-                    <div class="slide-caption">Nuestras Aulas de Clase</div>
+                    <img src="foto2.jpg" alt="Foto 2">
+                    <div class="slide-caption">Nuestras Aulas</div>
                 </div>
                 <!-- FOTO 3 -->
                 <div class="carousel-slide">
-                    <img src="https://picsum.photos/id/30/1000/450" alt="Biblioteca">
-                    <div class="slide-caption">Espacios de Estudio</div>
+                    <img src="foto3.jpg" alt="Foto 3">
+                    <div class="slide-caption">Espacios Educativos</div>
                 </div>
                 <!-- FOTO 4 -->
                 <div class="carousel-slide">
-                    <img src="https://picsum.photos/id/40/1000/450" alt="Deportes">
-                    <div class="slide-caption">Cancha Deportiva</div>
+                    <img src="foto4.jpg" alt="Foto 4">
+                    <div class="slide-caption">Actividades Escolares</div>
                 </div>
                 <!-- FOTO 5 -->
                 <div class="carousel-slide">
-                    <img src="https://picsum.photos/id/50/1000/450" alt="Actividades">
-                    <div class="slide-caption">Actividades Culturales</div>
+                    <img src="foto5.jpg" alt="Foto 5">
+                    <div class="slide-caption">Nuestra Comunidad</div>
+                </div>
+                <!-- FOTO 6 -->
+                <div class="carousel-slide">
+                    <img src="foto6.jpg" alt="Foto 6">
+                    <div class="slide-caption">Áreas Recreativas</div>
+                </div>
+                <!-- FOTO 7 -->
+                <div class="carousel-slide">
+                    <img src="foto7.jpg" alt="Foto 7">
+                    <div class="slide-caption">Eventos Institucionales</div>
+                </div>
+                <!-- FOTO 8 -->
+                <div class="carousel-slide">
+                    <img src="foto8.jpg" alt="Foto 8">
+                    <div class="slide-caption">Estudiantes en Acción</div>
+                </div>
+                <!-- FOTO 9 -->
+                <div class="carousel-slide">
+                    <img src="foto9.jpg" alt="Foto 9">
+                    <div class="slide-caption">Cultura y Deporte</div>
+                </div>
+                <!-- FOTO 10 -->
+                <div class="carousel-slide">
+                    <img src="foto10.jpg" alt="Foto 10">
+                    <div class="slide-caption">Nuestro Liceo</div>
                 </div>
 
             </div>
             
-            <!-- Botones para mover el carrusel -->
             <button class="carousel-btn prev" onclick="moverCarrusel(-1)">&#10094;</button>
             <button class="carousel-btn next" onclick="moverCarrusel(1)">&#10095;</button>
         </div>
     </section>
 
-    <!-- CONTACTO -->
     <section class="contacto" id="contacto">
         <h2>Complejo Educativo Nacional</h2>
         <p>Profesor Sergio Amaya Carrero</p>
         <a href="#" class="boton">Más información</a>
     </section>
 
-    <!-- PIE DE PÁGINA -->
     <footer>
         <h3>Complejo Educativo Nacional Profesor Sergio Amaya Carrero</h3>
         <p>Educación y formación para el futuro.</p>
         <p>© 2026 Todos los derechos reservados.</p>
     </footer>
 
-    <!-- MODAL -->
     <div id="miModal" class="modal">
         <span class="cerrar" onclick="cerrarModal()">&times;</span>
         <div class="modal-contenido" id="contenidoModal"></div>
     </div>
 
-    <!-- CONTENIDO OCULTO (Textos) -->
     <div id="content-historia" style="display:none;" class="modal-texto">
         <h2>Reseña Histórica</h2>
         <p>El 15 de febrero fue fundada la institución en la vieja casona, iniciándose como escuela la unitaria de primer grado a tercer grado, siendo maestros Efrain Contreras y su esposa Tomasita.</p>
@@ -427,9 +437,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // --- LÓGICA DE LAS VENTANAS FLOTANTES (MODALES) ---
         function abrirModalTexto(idContenido) {
             var modal = document.getElementById("miModal");
             var contenidoModal = document.getElementById("contenidoModal");
@@ -451,26 +459,20 @@
 
         window.onclick = function(event) {
             var modal = document.getElementById("miModal");
-            if (event.target == modal) {
-                cerrarModal();
-            }
+            if (event.target == modal) { cerrarModal(); }
         }
 
-        // --- LÓGICA DEL NUEVO CARRUSEL DINÁMICO ---
+        // --- LÓGICA DEL CARRUSEL ---
         const track = document.getElementById('carouselTrack');
         const slides = document.querySelectorAll('.carousel-slide');
         
         function moverCarrusel(direccion) {
-            // Obtiene el ancho de una imagen
-            const slideWidth = slides[0].offsetWidth + 15; // 15 es el gap
-            // Calcula a dónde debe moverse
+            const slideWidth = slides[0].offsetWidth + 15;
             track.scrollBy({ left: direccion * slideWidth, behavior: 'smooth' });
         }
 
-        // Opcional: Auto-reproducción (mueve el carrusel cada 4 segundos)
         setInterval(() => {
             const slideWidth = slides[0].offsetWidth + 15;
-            // Si llega al final, vuelve al inicio
             if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
                 track.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
