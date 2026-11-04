@@ -23,7 +23,7 @@
             --gris-fondo: #f4f6f8;
             --gris-texto: #5f6875;
             --blanco: #ffffff;
-            --azul-cielo: #7cb4e6; /* NUEVO COLOR AZUL CIELO INTERMEDIO */
+            --azul-cielo: #7cb4e6;
         }
 
         body {
@@ -50,9 +50,6 @@
             z-index: 1000;
         }
 
-        /* =====================================================
-           LOGO
-        ===================================================== */
         .logo {
             display: flex;
             align-items: center;
@@ -67,9 +64,6 @@
             flex-shrink: 0;
         }
 
-        /* =====================================================
-           NOMBRE DE LA INSTITUCIÓN
-        ===================================================== */
         .nombre {
             display: flex;
             flex-direction: column;
@@ -231,7 +225,7 @@
         }
 
         /* =====================================================
-           BACHILLERATO (Fondo Azul Cielo Intermedio)
+           BACHILLERATO Y BOTONES INTERACTIVOS
         ===================================================== */
         .anos {
             background: var(--azul-cielo);
@@ -243,7 +237,7 @@
         }
 
         .anos .titulo p {
-            color: #333; /* Gris oscuro para buen contraste */
+            color: #333;
             font-weight: 500;
         }
 
@@ -265,7 +259,7 @@
             border-bottom: 3px solid var(--dorado);
             transition: 0.25s;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para que resalte en el azul */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .ano:hover {
@@ -299,18 +293,10 @@
         .noticia p {
             color: var(--gris-texto);
             line-height: 1.6;
-            text-align: justify;
-        }
-
-        .noticia ul {
-            color: var(--gris-texto);
-            line-height: 1.6;
-            margin-left: 20px;
-            margin-top: 10px;
         }
 
         /* =====================================================
-           BOTONES
+           BOTONES GENERALES
         ===================================================== */
         .boton {
             display: inline-block;
@@ -329,7 +315,7 @@
         }
 
         /* =====================================================
-           CONTACTO (Fondo Azul Cielo Intermedio)
+           CONTACTO
         ===================================================== */
         .contacto {
             background: var(--azul-cielo); 
@@ -381,7 +367,7 @@
         }
 
         /* =====================================================
-           MODAL PARA LAS IMÁGENES
+           MODAL (VENTANA FLOTANTE)
         ===================================================== */
         .modal {
             display: none; 
@@ -393,24 +379,20 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(3px);
+            overflow-y: auto; 
         }
 
         .modal-contenido {
             position: relative;
             margin: 2% auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 96%;
-        }
-
-        .modal-contenido img {
-            max-width: 95%;
-            max-height: 95%;
-            object-fit: contain;
-            border-radius: 8px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 900px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             animation: zoom 0.3s;
+            color: #333;
         }
 
         @keyframes zoom {
@@ -419,7 +401,7 @@
         }
 
         .cerrar {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 35px;
             color: #fff;
@@ -435,70 +417,56 @@
             transform: scale(1.1);
         }
 
+        /* --- ESTILOS MEJORADOS PARA EL TEXTO DENTRO DEL MODAL --- */
+        .modal-texto h2 {
+            color: var(--azul);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            border-bottom: 2px solid var(--dorado);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-texto p {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .modal-texto ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .modal-texto li {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #444;
+        }
+        
+        .modal-texto strong {
+            color: var(--azul);
+        }
+
         /* =====================================================
            VERSIÓN PARA CELULAR
         ===================================================== */
         @media (max-width: 850px) {
-            header {
-                padding: 12px 5%;
-                flex-direction: column;
-                gap: 12px;
-            }
-            .logo {
-                width: 100%;
-                justify-content: center;
-            }
-            .logo img {
-                width: 45px;
-                height: 45px;
-            }
-            .nombre h1 {
-                font-size: 15px;
-            }
-            .nombre p {
-                font-size: 11px;
-            }
-            nav {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            nav a {
-                font-size: 13px;
-                padding: 8px 9px;
-            }
-            .banner {
-                min-height: 400px;
-            }
-            .banner-text {
-                padding: 25px;
-            }
-            .banner-text h2 {
-                font-size: 30px;
-            }
-            .banner-text p {
-                font-size: 16px;
-            }
-            .cerrar {
-                top: 10px;
-                right: 20px;
-                font-size: 40px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .nombre h1 {
-                font-size: 14px;
-            }
-            .banner-text h2 {
-                font-size: 26px;
-            }
-            section {
-                padding: 50px 6%;
-            }
-            .titulo h2 {
-                font-size: 27px;
-            }
+            header { padding: 12px 5%; flex-direction: column; gap: 12px; }
+            .logo { width: 100%; justify-content: center; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; }
+            .banner { min-height: 400px; }
+            .banner-text h2 { font-size: 30px; }
+            .modal-contenido { width: 95%; padding: 20px; margin: 10% auto; }
+            .cerrar { top: 10px; right: 20px; font-size: 40px; color: #333; }
+            .modal-texto h2 { font-size: 22px; }
+            .modal-texto p, .modal-texto li { font-size: 15px; }
         }
     </style>
 </head>
@@ -520,7 +488,7 @@
         <nav>
             <a href="#inicio" class="activo">Inicio</a>
             <a href="#institucion">Institución</a>
-            <a href="#historia">Historia</a> <!-- Añadido enlace a Historia -->
+            <a href="#identidad">Identidad</a>
             <a href="#bachillerato">Bachillerato</a>
             <a href="#noticias">Noticias</a>
             <a href="#contacto">Contacto</a>
@@ -552,13 +520,11 @@
                 <h3>Educación</h3>
                 <p>Brindamos formación académica para estudiantes de educación media.</p>
             </div>
-
             <div class="tarjeta">
                 <div class="icono">📚</div>
                 <h3>Formación</h3>
                 <p>Promovemos el aprendizaje, la responsabilidad y el desarrollo integral de nuestros estudiantes.</p>
             </div>
-
             <div class="tarjeta">
                 <div class="icono">🤝</div>
                 <h3>Comunidad</h3>
@@ -568,59 +534,24 @@
     </section>
 
     <!-- =====================================================
-         HISTORIA, MISIÓN Y VISIÓN (NUEVA SECCIÓN)
+         NUESTRA IDENTIDAD (HISTORIA, MISIÓN, VISIÓN INTERACTIVAS)
     ===================================================== -->
-    <section id="historia" style="background: white;">
+    <section id="identidad" style="background: white;">
         <div class="titulo">
-            <h2>Reseña Histórica, Misión y Visión</h2>
-            <p>Conoce nuestros orígenes y el rumbo que guía a nuestra institución.</p>
+            <h2>Nuestra Identidad</h2>
+            <p>Haz clic para conocer nuestra historia, misión y visión.</p>
         </div>
 
-        <div class="noticias">
-            <!-- Reseña Histórica (Ocupa todo el ancho) -->
-            <div class="noticia" style="grid-column: 1 / -1;">
-                <h3>Reseña Histórica</h3>
-                <p>El 15 de febrero fue fundada la institución en la vieja casona, iniciándose como escuela la unitaria de primer grado a tercer grado, siendo maestros Efrain Contreras y su esposa Tomasita.</p>
-                <p>Con el tiempo pasa a ser escuela concentrada que atendía de primer grado a sexto grado contando con especialistas de educación para el trabajo, campo y cría, por lo cual paso a ser graduada con el nombre de escuela pre vocacional "Vega de la pipa", siendo director el profesor Rodolfo Zambrano y junto con el profesor Sergio Amaya Carrero se creó el logo de la institución.</p>
-                <p>Cabe destacar que en la institución durante décadas han cumplido funciones como directores titulares o encargados muchos docentes comprometidos con la gerencia, administración y guía de la misma, entre los cuales se citan:</p>
-                <ul>
-                    <li><strong>1989-2001</strong> Profesor Gilberto Mendoza, director titular.</li>
-                    <li><strong>2001-2005</strong> Profesor EfrainRamirez, tiempo durante el cual la institución cambia de nombre a: escuela bolivariana con noveno horario de 9:30am a 3:30pm. En el año escolar 2003-2004 inicia la III etapa con la apertura de dos novenos (a-b); atendidos por dos maestros integradores, un docente especialista de proyecto productivo y un docente de inglés.</li>
-                    <li><strong>2005-2007</strong> profesora Gisela Velandia.</li>
-                    <li><strong>2007-2009</strong> licenciada María Sildena Hernandez, quien junto al profesor Alvaro Rodriguez crearon el himno institucional. Se apertura el cuarto y quinto año egresando la I promoción de bachilleres (2008-2009).</li>
-                    <li><strong>2009-2013</strong> Profesora Maria Eudoxia Becerra de Velandia: quien promueve la reorganización de los espacios educativos, así como la rehabilitación y acondicionamiento de la casilla policial para atender el maternal. Egresan la II promoción de bachilleres (2009-2010). Se crea el equipo de softbol institucional de profesores. Egresan la III promoción de bachilleres (2010-2011). Se funda la bandera ecológica por el profesor Ender Alvarado con la colaboración del profesor Nelson Godoy. Egresan la IV promoción de bachilleres (2011-2012). Se incorporan al liceo los docentes especialistas de biología y química e informática. Egresan la V promoción de bachilleres (2012-2013).</li>
-                    <li><strong>2013-2014</strong> Profesora Silvey Carvajal, egresa la VI promoción de bachilleres.</li>
-                    <li><strong>2014-2015</strong> Licenciada Marisol Chacon. Egresan la VII promoción de bachilleres.</li>
-                    <li><strong>2015-2020</strong> Licenciada Moncada Leida. Se incorporan las matrículas del NER 292 de la sabana y caño de agua como escuelas anexas. Egresan la promoción VIII; XIX; X; XI y XII.</li>
-                    <li><strong>2020-2023</strong> Profesora MariaEudocia Becerra de Velandia. Egresan las promociones XIII y XIV.</li>
-                </ul>
-            </div>
-
-            <!-- Misión -->
-            <div class="noticia">
-                <h3>Misión</h3>
-                <p>La U.E.N pre vocacional "Vega DE La Pipa" es una institución educativa publica dedicada a la formación integral de niños, niñas y adolescentes, sujetos de derecho y protagonistas activos de su propio aprendizajes. Es una institución abierta a la participación y trabajo comunitario, que busca la integración y el crecimiento en todos los ámbitos de la sociedad. Así mismo se educa mediante un proceso de unión entre la triada (familia- escuela- comunidad), en un ambiente de intercambio plenamente democrático y de compromiso, identificado y desarrollando las potencialidades de los estudiantes, respondiendo a sus necesidades y respetando sus características individuales para así brindarles una educación integral de calidad un enfoque humanista.</p>
-            </div>
-
-            <!-- Visión -->
-            <div class="noticia">
-                <h3>Visión</h3>
-                <p>La U.E.N pre vocacional "Vega de la Pipa" pretende ser una institución que forme e integre a la sociedad ciudadanos productivos, críticos, reflexivos, personas competentes e idóneas, sensibles ante los problemas de su comunidad y entorno social, con base sólida en valores. Formando individuos aptos para:</p>
-                <ul>
-                    <li>La integración productiva y activa de toda la comunidad en general.</li>
-                    <li>Espacios de análisis y reflexión entre sus integrantes.</li>
-                    <li>Que reconozcan la diversidad y la interculturalidad.</li>
-                    <li>Una cultura preventiva entre sus integrantes.</li>
-                    <li>La producción, mantenimiento y protección del ambiente.</li>
-                    <li>La conservación de una conciencia crítica.</li>
-                    <li>La vivencia de los derechos humanos y la construcción de la paz.</li>
-                </ul>
-            </div>
+        <div class="lista-anos">
+            <!-- Botones que abren ventanas flotantes de texto -->
+            <div class="ano" onclick="abrirModalTexto('historia')">Reseña Histórica</div>
+            <div class="ano" onclick="abrirModalTexto('mision')">Misión</div>
+            <div class="ano" onclick="abrirModalTexto('vision')">Visión</div>
         </div>
     </section>
 
     <!-- =====================================================
-         BACHILLERATO
+         BACHILLERATO (HORARIOS CON IMÁGENES)
     ===================================================== -->
     <section class="anos" id="bachillerato">
         <div class="titulo">
@@ -629,13 +560,12 @@
         </div>
 
         <div class="lista-anos">
-            <div class="ano" onclick="abrirModal('horario1.png')">1.º Año</div>
-            <div class="ano" onclick="abrirModal('horario2.png')">2.º Año</div>
-            
-            <!-- AÑADIDOS LOS HORARIOS DE 3RO, 4TO Y 5TO EN FORMATO PNG -->
-            <div class="ano" onclick="abrirModal('horario3.png')">3.º Año</div>
-            <div class="ano" onclick="abrirModal('horario4.png')">4.º Año</div>
-            <div class="ano" onclick="abrirModal('horario5.png')">5.º Año</div>
+            <!-- TODOS los botones abren imágenes en formato PNG -->
+            <div class="ano" onclick="abrirModalImagen('horario1.png')">1.º Año</div>
+            <div class="ano" onclick="abrirModalImagen('horario2.png')">2.º Año</div>
+            <div class="ano" onclick="abrirModalImagen('horario3.png')">3.º Año</div>
+            <div class="ano" onclick="abrirModalImagen('horario4.png')">4.º Año</div>
+            <div class="ano" onclick="abrirModalImagen('horario5.png')">5.º Año</div>
         </div>
     </section>
 
@@ -653,12 +583,10 @@
                 <h3>Actividades académicas</h3>
                 <p>Conoce las próximas actividades y eventos de nuestra institución.</p>
             </div>
-
             <div class="noticia">
                 <h3>Actividades deportivas</h3>
                 <p>Espacios para promover el deporte, la convivencia y el trabajo en equipo.</p>
             </div>
-
             <div class="noticia">
                 <h3>Comunidad estudiantil</h3>
                 <p>Conoce algunas de las actividades realizadas por nuestros estudiantes.</p>
@@ -685,22 +613,82 @@
     </footer>
 
     <!-- =====================================================
-         MODAL
+         MODAL (VENTANA FLOTANTE)
     ===================================================== -->
     <div id="miModal" class="modal">
         <span class="cerrar" onclick="cerrarModal()">&times;</span>
-        <div class="modal-contenido">
-            <img id="imgModal" src="" alt="Horario de clases">
+        <div class="modal-contenido" id="contenidoModal">
+            <!-- Aquí se inyecta la imagen o el texto -->
         </div>
+    </div>
+
+    <!-- =====================================================
+         CONTENIDO OCULTO (Textos de Identidad)
+    ===================================================== -->
+    
+    <!-- HISTORIA -->
+    <div id="content-historia" style="display:none;" class="modal-texto">
+        <h2>Reseña Histórica</h2>
+        <p>El 15 de febrero fue fundada la institución en la vieja casona, iniciándose como escuela la unitaria de primer grado a tercer grado, siendo maestros Efrain Contreras y su esposa Tomasita.</p>
+        <p>Con el tiempo pasa a ser escuela concentrada que atendía de primer grado a sexto grado contando con especialistas de educación para el trabajo, campo y cría, por lo cual paso a ser graduada con el nombre de escuela pre vocacional "Vega de la pipa", siendo director el profesor Rodolfo Zambrano y junto con el profesor Sergio Amaya Carrero se creó el logo de la institución.</p>
+        <p>Cabe destacar que en la institución durante décadas han cumplido funciones como directores titulares o encargados muchos docentes comprometidos con la gerencia, administración y guía de la misma, entre los cuales se citan:</p>
+        <ul>
+            <li><strong>1989-2001</strong> Profesor Gilberto Mendoza, director titular.</li>
+            <li><strong>2001-2005</strong> Profesor EfrainRamirez, tiempo durante el cual la institución cambia de nombre a: escuela bolivariana con noveno horario de 9:30am a 3:30pm. En el año escolar 2003-2004 inicia la III etapa con la apertura de dos novenos (a-b); atendidos por dos maestros integradores, un docente especialista de proyecto productivo y un docente de inglés.</li>
+            <li><strong>2005-2007</strong> profesora Gisela Velandia.</li>
+            <li><strong>2007-2009</strong> licenciada María Sildena Hernandez, quien junto al profesor Alvaro Rodriguez crearon el himno institucional. Se apertura el cuarto y quinto año egresando la I promoción de bachilleres (2008-2009).</li>
+            <li><strong>2009-2013</strong> Profesora Maria Eudoxia Becerra de Velandia: quien promueve la reorganización de los espacios educativos, así como la rehabilitación y acondicionamiento de la casilla policial para atender el maternal. Egresan la II promoción de bachilleres (2009-2010). Se crea el equipo de softbol institucional de profesores. Egresan la III promoción de bachilleres (2010-2011). Se funda la bandera ecológica por el profesor Ender Alvarado con la colaboración del profesor Nelson Godoy. Egresan la IV promoción de bachilleres (2011-2012). Se incorporan al liceo los docentes especialistas de biología y química e informática. Egresan la V promoción de bachilleres (2012-2013).</li>
+            <li><strong>2013-2014</strong> Profesora Silvey Carvajal, egresa la VI promoción de bachilleres.</li>
+            <li><strong>2014-2015</strong> Licenciada Marisol Chacon. Egresan la VII promoción de bachilleres.</li>
+            <li><strong>2015-2020</strong> Licenciada Moncada Leida. Se incorporan las matrículas del NER 292 de la sabana y caño de agua como escuelas anexas. Egresan la promoción VIII; XIX; X; XI y XII.</li>
+            <li><strong>2020-2023</strong> Profesora MariaEudocia Becerra de Velandia. Egresan las promociones XIII y XIV.</li>
+        </ul>
+    </div>
+
+    <!-- MISIÓN -->
+    <div id="content-mision" style="display:none;" class="modal-texto">
+        <h2>Misión</h2>
+        <p>La U.E.N pre vocacional "Vega DE La Pipa" es una institución educativa publica dedicada a la formación integral de niños, niñas y adolescentes, sujetos de derecho y protagonistas activos de su propio aprendizajes. Es una institución abierta a la participación y trabajo comunitario, que busca la integración y el crecimiento en todos los ámbitos de la sociedad. Así mismo se educa mediante un proceso de unión entre la triada (familia- escuela- comunidad), en un ambiente de intercambio plenamente democrático y de compromiso, identificado y desarrollando las potencialidades de los estudiantes, respondiendo a sus necesidades y respetando sus características individuales para así brindarles una educación integral de calidad un enfoque humanista.</p>
+    </div>
+
+    <!-- VISIÓN -->
+    <div id="content-vision" style="display:none;" class="modal-texto">
+        <h2>Visión</h2>
+        <p>La U.E.N pre vocacional "Vega de la Pipa" pretende ser una institución que forme e integre a la sociedad ciudadanos productivos, críticos, reflexivos, personas competentes e idóneas, sensibles ante los problemas de su comunidad y entorno social, con base sólida en valores. Formando individuos aptos para:</p>
+        <ul>
+            <li>La integración productiva y activa de toda la comunidad en general.</li>
+            <li>Espacios de análisis y reflexión entre sus integrantes.</li>
+            <li>Que reconozcan la diversidad y la interculturalidad.</li>
+            <li>Una cultura preventiva entre sus integrantes.</li>
+            <li>La producción, mantenimiento y protección del ambiente.</li>
+            <li>La conservación de una conciencia crítica.</li>
+            <li>La vivencia de los derechos humanos y la construcción de la paz.</li>
+        </ul>
     </div>
 
     <!-- =====================================================
          JAVASCRIPT
     ===================================================== -->
     <script>
-        function abrirModal(rutaImagen) {
-            document.getElementById("miModal").style.display = "block";
-            document.getElementById("imgModal").src = rutaImagen;
+        // Función para abrir el modal con texto
+        function abrirModalTexto(idContenido) {
+            var modal = document.getElementById("miModal");
+            var contenidoModal = document.getElementById("contenidoModal");
+            var contenidoOculto = document.getElementById("content-" + idContenido);
+            
+            // Inyectamos el HTML de la sección oculta al modal
+            contenidoModal.innerHTML = contenidoOculto.innerHTML;
+            modal.style.display = "block";
+        }
+
+        // Función para abrir el modal con Imágenes (Para los horarios)
+        function abrirModalImagen(rutaImagen) {
+            var modal = document.getElementById("miModal");
+            var contenidoModal = document.getElementById("contenidoModal");
+            
+            // Inyectamos la etiqueta img al modal
+            contenidoModal.innerHTML = '<img src="' + rutaImagen + '" style="width:100%; height:auto; border-radius:8px; display: block; margin: 0 auto;" alt="Horario">';
+            modal.style.display = "block";
         }
 
         function cerrarModal() {
